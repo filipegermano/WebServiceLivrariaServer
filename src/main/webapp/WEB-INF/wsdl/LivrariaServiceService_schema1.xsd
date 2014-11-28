@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://webservicelivraria.pos.ifpb.edu.br/" xmlns:tns="http://webservicelivraria.pos.ifpb.edu.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="localizarLivros" type="tns:localizarLivros"/>
+
+  <xs:element name="localizarLivrosResponse" type="tns:localizarLivrosResponse"/>
+
+  <xs:element name="recuperarLivro" type="tns:recuperarLivro"/>
+
+  <xs:element name="recuperarLivroResponse" type="tns:recuperarLivroResponse"/>
+
+  <xs:element name="salvar" type="tns:salvar"/>
+
+  <xs:element name="salvarResponse" type="tns:salvarResponse"/>
+
+  <xs:complexType name="localizarLivros">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="localizarLivrosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="salvar">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:livro" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="livro">
+    <xs:sequence>
+      <xs:element name="numeroPaginas" type="xs:int" minOccurs="0"/>
+      <xs:element name="preco" type="xs:double" minOccurs="0"/>
+      <xs:element name="titulo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="salvarResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recuperarLivro">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="recuperarLivroResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:livro" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+
